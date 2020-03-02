@@ -38,7 +38,7 @@ def main():
         else:
             print("already flipped")
         matched = check_if_solved(cards, down_cards)
-    print(cards)
+    print_cards(cards)
     print("You win!")
 
 
