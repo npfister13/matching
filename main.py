@@ -65,7 +65,7 @@ def check_first(max_cards):
             print("Please enter a number.")
         else:
             if choice > max_cards or choice <= 0:
-                print("Invalid number. Please enter a number above 0 and below max cards (%s)." % max_cards)
+                print("Invalid number. Please enter a number above 0 and below max cards {}.".format(max_cards))
             else:
                 return choice
 
@@ -81,7 +81,7 @@ def check_second(max_cards, first_choice, down_cards):
             if choice == first_choice:
                 print("You're already looking at that card!")
             elif choice > max_cards or choice <= 0:
-                print("Invalid number. Please enter a number above 0 and below max cards (%s)." % max_cards)
+                print("Invalid number. Please enter a number above 0 and below max cards {}.".format(max_cards))
             elif down_cards[choice] != "[]":
                 print("You've already flipped that card!")
             else:
@@ -90,7 +90,7 @@ def check_second(max_cards, first_choice, down_cards):
 
 def print_cards(down_cards):
     for i in range(len(down_cards)):
-        print(" %s" % down_cards[i], end="")
+        print(" {}".format(down_cards[i]), end="")
 
 
 def create_cards(cards, max_cards, added):
