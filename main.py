@@ -14,6 +14,7 @@ def main():
 
     matched = False
 
+    # continues until all matched
     while matched is not True:
         print_cards(down_cards)
         print("")
@@ -24,7 +25,7 @@ def main():
             print_cards(down_cards)
             print("")
             print("Choose which card to match with.")
-            second_choice = check_second(max_cards, first_choice)
+            second_choice = check_second(max_cards, first_choice, down_cards)
             if cards[second_choice - 1] == cards[first_choice - 1]:
                 down_cards[second_choice - 1] = str(cards[second_choice - 1])
                 print("Cards matched!")
@@ -55,6 +56,7 @@ def check_if_solved(cards, down_cards):
         return False
 
 
+# check first card input
 def check_first(max_cards):
     while True:
         try:
@@ -68,7 +70,8 @@ def check_first(max_cards):
                 return choice
 
 
-def check_second(max_cards, first_choice):
+# check second card input
+def check_second(max_cards, first_choice, down_cards):
     while True:
         try:
             choice = int(input("> "))
@@ -79,6 +82,8 @@ def check_second(max_cards, first_choice):
                 print("You're already looking at that card!")
             elif choice > max_cards or choice <= 0:
                 print("Invalid number. Please enter a number above 0 and below max cards (%s)." % max_cards)
+            elif down_cards[choice] != "[]":
+                print("You've already flipped that card!")
             else:
                 return choice
 
